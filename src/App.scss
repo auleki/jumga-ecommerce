@@ -3,6 +3,9 @@
 
 $f1: 'Hachi Maru Pop';
 $f2: Mukta;
+$c1: #e4e7e2f3;
+$c2: #ff4010f3;
+$c3: #1a77f0f3;
 
 * {
   padding: 0;
@@ -68,8 +71,70 @@ html {
   // overflow: hidden;
 }
 
+.cart {
+  position: relative;
+  top: 0;
+  right: 0;
+
+  .badge {
+    background: $c2;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    text-align: center;
+    border-radius: 100px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 300ms ease-in;
+
+    &:hover {
+      background: black;
+    }
+  }
+  
+  .cart_preview {
+    margin-top: 1em;
+    display: none;
+    max-height: 0;
+    transition: height 400ms ease-in;
+    
+    &.active {
+      max-height: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    ul {
+      width: 100%;
+      border-radius: 10px;
+      background: $c1;
+      overflow-y: scroll;
+      
+      li {
+        padding: 1em;
+        // background: $c1;
+        transition: background 100ms ease-in;
+
+        &:hover {
+          background: darken($c1, 10%);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .cart_actions {
+    margin: 1em 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .full_screen {
   height: 100vh;
+  position: relative;
   overflow: hidden;
 }
 

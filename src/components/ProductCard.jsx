@@ -1,8 +1,10 @@
 import React from 'react'
 import { JustifiedRow, StyledProductCard, Button } from "./styledComponents";
 
-const ProductCard = ({ footWear }) => {
+const ProductCard = ({ footWear, addToCart }) => {
   const { modelName, brandName, price, modelNumber, shoeImage } = footWear;
+
+  
   
   return (
     <StyledProductCard>
@@ -23,7 +25,7 @@ const ProductCard = ({ footWear }) => {
       </div>
       <JustifiedRow>
         <div>
-          <Button>
+          <Button onClick={() => addToCart(footWear)}>
             <span>Add to cart</span>
             <i class="ri-shopping-cart-2-line icon"></i>
           </Button>

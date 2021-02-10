@@ -20,7 +20,6 @@ export const JustifiedRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* align-items: center; */
 `
 
 export const JustifiedRowCenter = styled.div`
@@ -136,14 +135,23 @@ export const Button = styled.button`
   background: ${c3};
   padding: 1em 1em;
   display: flex;
-  /* color: ${c1}; */
   color: #fff;
+  border: 3px solid transparent;
   outline: 0;
   text-transform: uppercase;
   transition: background 300ms ease-in-out, color 300ms ease-in-out;
   border-radius: .2em;
   align-items: center;
   justify-content: space-between;
+
+  ${({ outlined })=> 
+  outlined && css `
+    background: #fff;
+    border: 3px solid ${c3};
+    color: #1a1a1a;
+  `
+}
+  
   ${({ center }) => 
     center && css `
       justify-content: center;
@@ -155,7 +163,7 @@ export const Button = styled.button`
   }
 
   .icon {
-  transition: 100ms ease-in;
+    transition: 100ms ease-in;
   }
 
   &:hover {
@@ -180,7 +188,6 @@ export const CentredSection = styled.div`
 
 export const StyledForm = styled.form`
   /* background: crimson; */
-
   width: 30rem;
   padding: 2em;
 

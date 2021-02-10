@@ -19,76 +19,76 @@ const Sidebar = () => {
   // iconButton.addEventListener('mouseover', toggleMenu);
   return (
     <>
-      <div class="navigation">
-          <ul class="navbar_section">
+      <div className="navigation">
+          <ul className="navbar_section">
           <li>
               <Link to="/">
-                <span class="icon">
-                <i class="ri-shopping-bag-2-fill"></i>
+                <span className="icon">
+                <i className="ri-shopping-bag-2-fill"></i>
                 </span>
-                <span class="target">Shopping</span>
+                <span className="target">Shopping</span>
               </Link>
             </li>
             <li>
               <Link to="/dashboard">
-                <span class="icon">
-                <i class="ri-bubble-chart-fill"></i>
+                <span className="icon">
+                <i className="ri-bubble-chart-fill"></i>
                 </span>
-                <span class="target">Dashboard</span>
+                <span className="target">Dashboard</span>
               </Link>
             </li>
             <li>
               <Link to="/products">
-                <span class="icon">
-                <i class="ri-stack-fill"></i>
+                <span className="icon">
+                <i className="ri-stack-fill"></i>
                 </span>
-                <span class="target">Products</span>
+                <span className="target">Products</span>
               </Link>
             </li>
             <li>
               <Link to="/orders">
-                <span class="icon">
-                <i class="ri-shopping-cart-fill"></i>
+                <span className="icon">
+                <i className="ri-shopping-cart-fill"></i>
                 </span>
-                <span class="target">Orders</span>
+                <span className="target">Orders</span>
               </Link>
             </li>
             <li>
               <Link to="/wishlist">
-                <span class="icon">
-                <i class="ri-bookmark-3-fill"></i>
+                <span className="icon">
+                <i className="ri-bookmark-3-fill"></i>
                 </span>
-                <span class="target">Wishlist</span>
+                <span className="target">Wishlist</span>
               </Link>
             </li>
             <li>
               <Link to="/settings">
-                <span class="icon">
-                <i class="ri-settings-3-fill"></i>
+                <span className="icon">
+                <i className="ri-settings-3-fill"></i>
                 </span>
-                <span class="target">Store Profile</span>
+                <span className="target">Store Profile</span>
               </Link>
             </li>
             <li>
               <Link to="/login">
-                <span class="icon">
-                <i class="ri-settings-3-fill"></i>
+                <span className="icon">
+                <i className="ri-settings-3-fill"></i>
                 </span>
-                <span class="target">Login</span>
+                <span className="target">Login</span>
               </Link>
             </li>
             <li>
               <Link to="/register">
-                <span class="icon">
-                <i class="ri-settings-3-fill"></i>
+                <span className="icon">
+                <i className="ri-settings-3-fill"></i>
                 </span>
-                <span class="target">Register</span>
+                <span className="target">Register</span>
               </Link>
             </li>
           </ul>
 
         </div>
-        <div class="toggle"></div>
+        <div className="toggle"></div>
     </>   
     
   )
