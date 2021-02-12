@@ -12,6 +12,8 @@ import {
 } from '../components/styledComponents';
 import { footWears } from '../services/utilities';
 import ProductCard from '../components/ProductCard';
+import { Link } from 'react-router-dom'
+
 
 const CartItem = ({ item }) => {
 	return (
@@ -28,9 +30,17 @@ const Cart = () => {
 
 	const toggleCartView = () => setOpen(!open);
 
-	// const splitPayment = (arr) => {
-	// 	const
-	// }
+ const PK = "FLWPUBK_TEST-1bc4c3a77cbfe75c2645260736185e05-X"
+ const SK = "FLWSECK_TEST-6c2aa6337310bc76ea56159979d66e42-X"
+ const EK = "FLWSECK_TEST39ac43321ada"
+ 
+	
+	const dispatchUrl = ""
+	const storeOwnerUrl = ""
+
+	const checkOut = () => {
+
+	}
 
 	const data = {
 		products: [
@@ -105,7 +115,9 @@ const Cart = () => {
 				</div>
 				<ul>{data.products.map((item, i) => <CartItem key={i} item={item} />)}</ul>
 				<div className="cart_actions">
+				<Link to="/payment">
 					<Button>Checkout</Button>
+				</Link>
 					<p>
 						Delivery Fee: $<span>{data.deliveryFee}</span>
 					</p>

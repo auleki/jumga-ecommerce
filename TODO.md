@@ -1,0 +1,1 @@
+- Add product images to cart and make them bounce on hover 

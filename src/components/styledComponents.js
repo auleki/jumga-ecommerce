@@ -99,7 +99,7 @@ export const StyledProductCard = styled.div`
     margin: 5em 0;
     img {
       height: auto;
-      width: 100%;
+      width: 40%;
     }
   }
 
