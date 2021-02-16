@@ -4,7 +4,7 @@
 $f1: 'Hachi Maru Pop';
 $f2: Mukta;
 $c1: #e4e7e2f3;
-$c2: #ff4010f3;
+$c2: #DB5461;
 $c3: #1a77f0f3;
 
 * {
@@ -137,9 +137,10 @@ a {
 }
 
 .full_screen {
-  height: 100vh;
+  height: 100%;
+  // background-color: aqua;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .navigation {
@@ -463,4 +464,34 @@ a {
 
 
   
+}
+
+
+
+/* 
+
+RADIO STYLING
+
+*/
+
+
+.radio {
+  display: flex;
+
+  .radio_group {
+    padding: 2em 1em 1em 1em;
+    transition: 300ms ease-in;
+    display: flex;
+    margin-right: 3em;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: solid 4px transparent;
+    border-radius: 4px;
+    
+    &:hover {
+      border-bottom: solid 4px $c2;
+      cursor: pointer;
+      background: $c1;
+    }
+  }
 }

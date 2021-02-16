@@ -10,7 +10,7 @@ c4 = "#F7F7F7"
 
 export const Page = styled.div`
   padding: 4em 1em 4em 2em;
-  /* height: 50vh; */
+  /* height: 100vh; */
   background: ${c4};
   display: absolute;
   z-index: 100;
@@ -18,6 +18,7 @@ export const Page = styled.div`
 `
 export const JustifiedRow = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 `
@@ -124,6 +125,10 @@ export const SubHeader = styled.h4`
   color: ${c2};
   font-weight: 200;
   display: inline;
+  ${({ center }) => 
+    center && css `
+      text-align: center;
+    `}
 `
 
 export const CrumbHeader = styled.a`
@@ -203,12 +208,13 @@ export const StyledForm = styled.form`
     input {
       padding: 1em;
       outline: 0;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
       border-radius: .5em;
       transition: 300ms ease-in;
 
       &:focus {
         color: ${c3};
+        border: 2px solid ${c3};
       }
     }
 
@@ -221,7 +227,6 @@ export const StyledForm = styled.form`
 
 export const Row = styled.div`
   display: flex;
-  
 `
 
 

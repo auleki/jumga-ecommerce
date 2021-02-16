@@ -16,7 +16,8 @@ const PageRoutes = () => {
     return (
       <>
         <Switch>
-          <Route exact path="/" component={Shopping} />
+          <Route exact path="/" component={Register} />
+          <Route path="/shopping" component={Shopping} />
           <Route path="/payment" component={Payment} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/orders" component={Orders} />

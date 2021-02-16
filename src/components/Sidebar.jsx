@@ -22,7 +22,7 @@ const Sidebar = () => {
       <div className="navigation">
           <ul className="navbar_section">
           <li>
-              <Link to="/">
+              <Link to="/shopping">
                 <span className="icon">
                 <i className="ri-shopping-bag-2-fill"></i>
                 </span>

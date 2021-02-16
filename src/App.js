@@ -6,7 +6,7 @@ import PageRoutes from './components/PageRoutes'
 const App = () => {
     
     return (
-      <div class="main">
+      <div className="main">
         <Sidebar />
         <PageRoutes />
       </div>

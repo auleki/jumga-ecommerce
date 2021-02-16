@@ -27,7 +27,7 @@ const ProductCard = ({ footWear, addToCart }) => {
         <div>
           <Button onClick={() => addToCart(footWear)}>
             <span>Add to cart</span>
-            <i class="ri-shopping-cart-2-line icon"></i>
+            <i className="ri-shopping-cart-2-line icon"></i>
           </Button>
         </div>
         <div>

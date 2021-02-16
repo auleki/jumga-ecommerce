@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
 	Page,
 	JustifiedRow,
@@ -25,22 +25,27 @@ const CartItem = ({ item }) => {
 	);
 };
 
-const Cart = () => {
+const Cart = ({ cartEssentials }) => {
 	const [ open, setOpen ] = useState(false);
+
+	const { totalPrice, setTotalPrice, cartItems, setCartItems } = cartEssentials
 
 	const toggleCartView = () => setOpen(!open);
 
- const PK = "FLWPUBK_TEST-1bc4c3a77cbfe75c2645260736185e05-X"
- const SK = "FLWSECK_TEST-6c2aa6337310bc76ea56159979d66e42-X"
- const EK = "FLWSECK_TEST39ac43321ada"
- 
+	const calculateTotal = (arr) => arr.reduce((total, amount) => total + amount.price, 0)
+
+	// const numberTotal = calculateTotal(numbers)
 	
+//  const PK = "FLWPUBK_TEST-1bc4c3a77cbfe75c2645260736185e05-X"
+//  const SK = "FLWSECK_TEST-6c2aa6337310bc76ea56159979d66e42-X"
+//  const EK = "FLWSECK_TEST39ac43321ada"
+ 
 	const dispatchUrl = ""
 	const storeOwnerUrl = ""
 
-	const checkOut = () => {
+	// const checkOut = () => {
 
-	}
+	// }
 
 	const data = {
 		products: [
@@ -95,9 +100,35 @@ const Cart = () => {
 					'https://cdn.shopify.com/s/files/1/0061/4694/9184/products/TB0A1S5M001_alt4_clipped_rev_1.png?v=1586216894'
 			}
 		],
-		totalPrice: 0,
-		deliveryFee: 250
+		totalPrice,
+		deliveryFee: 1000
 	};
+
+	/* 
+		if cart is empty
+	 */
+
+	if (cartItems.length === 0) {
+		return (
+			<div className="cart">
+			<div className="badge" onClick={toggleCartView}>
+				<span>{cartItems.length}</span>
+			</div>
+			<div className={`cart_preview ${open ? 'active' : ''}`}>
+				<h2>Cart is Empty</h2>
+			</div>
+				
+		</div>
+		)
+	}
+	
+	/* 
+		end of if block 
+	 */
+
+	const cartTotal = calculateTotal(data.products)
+
+	console.log("CART TOTAL:", cartTotal)
 
 	// data object goes through a function that splits up the price for the
 	// user and add the appropriate to the right collections
@@ -105,7 +136,7 @@ const Cart = () => {
 	return (
 		<div className="cart">
 			<div className="badge" onClick={toggleCartView}>
-				<span>{data.products.length}</span>
+				<span>{cartItems.length}</span>
 			</div>
 			<div className={`cart_preview ${open ? 'active' : ''}`}>
 				<div className="cart_info">
@@ -113,7 +144,7 @@ const Cart = () => {
 						<h2>Total: ${data.totalPrice}</h2>
 					</div>
 				</div>
-				<ul>{data.products.map((item, i) => <CartItem key={i} item={item} />)}</ul>
+				<ul>{cartItems.map((item, i) => <CartItem key={i} item={item} />)}</ul>
 				<div className="cart_actions">
 				<Link to="/payment">
 					<Button>Checkout</Button>
@@ -128,15 +159,36 @@ const Cart = () => {
 	);
 };
 
+/* SHOPPING CONTAINER */
+
 const Shopping = () => {
+	const [totalPrice, setTotalPrice] = useState(0)
+	const [cartItems, setCartItems] = useState([{
+		quantity: 1,
+		modelName: 'Powercourt 0520',
+		brandName: 'LaCoste',
+		price: 110,
+		modelNumber: 18149502,
+		shoeImage: 'https://www.thenextsole.com/storage/images/40SMA0079407.png'
+	}])
+
+	useEffect(() => {
+		
+	}, [cartItems])
+
+	const cartEssentials = { totalPrice, setTotalPrice, cartItems, setCartItems }
+
 	const addToCart = (item) => {
 		console.table('Added to Cart:', item)
+		cartItems.push(item)
+		console.table('Cart:', cartItems)
 	};
+	
 
 	return (
 		<Page>
 			<div className="full_screen">
-				<Cart />
+				<Cart cartEssentials={cartEssentials}/>
 				<JustifiedRowCenter>
 					<div>
 						<SubHeader>Shopping</SubHeader> /<CrumbHeader> Products</CrumbHeader>
@@ -154,7 +206,13 @@ const Shopping = () => {
 					</GapedRow>
 				</JustifiedRowCenter>
 				<ProductGrid>
-					{footWears.map((shoe, i) => <ProductCard key={i} addToCart={addToCart} footWear={shoe} />)}
+					{footWears.map((shoe, i) => (
+					<ProductCard 
+						key={i} 
+						addToCart={addToCart} 
+						cartEssentials={cartEssentials} 
+						footWear={shoe} />
+						))}
 				</ProductGrid>
 			</div>
 		</Page>
