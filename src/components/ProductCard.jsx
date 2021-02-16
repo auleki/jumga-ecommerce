@@ -1,5 +1,6 @@
 import React from 'react'
 import { JustifiedRow, StyledProductCard, Button } from "./styledComponents";
+import { formatToComma } from '../services/operation'
 
 const ProductCard = ({ footWear, addToCart }) => {
   const { modelName, brandName, price, modelNumber, shoeImage } = footWear;
@@ -14,7 +15,7 @@ const ProductCard = ({ footWear, addToCart }) => {
           <span className="special">{brandName}</span>
         </div>
         <div className="product_price">
-          <p>${price}</p>
+          <p>N{formatToComma(price)}</p>
         </div>
       </JustifiedRow>
       <div className="product_image">

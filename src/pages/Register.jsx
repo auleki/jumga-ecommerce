@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Page, CentredSection, StyledForm, Button, SubHeader } from '../components/styledComponents'
+import { Page, CentredSection, StyledForm, Title, Button, SubHeader } from '../components/styledComponents'
 
 const Register = () => {
-  const [userRole, setUserRole] = useState("")
+  const [userRole, setUserRole] = useState("customer")
 
   const handleRadio = (e) => {
     const roleValue = e.target.value
+    // const checked = e.target
+    // console.log("CHECKED:", checked )
     console.log("WHAT CLICKED", roleValue)
     setUserRole(roleValue)
   }
-
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -28,14 +29,17 @@ const Register = () => {
       <Page>
         <CentredSection className="authentication">
           <StyledForm onSubmit={handleSubmit}>
-            <SubHeader center>Welcome to Jumga Stores</SubHeader>
+            <Title size={2} center>Welcome to Jumga Stores</Title>
+            <SubHeader size={1.3} textColor="#DB5461">
+              Pick an option
+            </SubHeader>
             <div className="selection">
               <div className="radio">
                 <div className="radio_group">
                   <input type="radio" 
                     onChange={handleRadio} 
                     name="role" 
-                    id="role" 
+                    id="role"
                     value="customer"
                     required/>
                   <label htmlFor="role">Customer</label>

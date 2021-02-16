@@ -13,19 +13,19 @@ import {
 import { footWears } from '../services/utilities';
 import ProductCard from '../components/ProductCard';
 import { Link } from 'react-router-dom'
-
+import { formatToComma } from '../services/operation'
 
 const CartItem = ({ item }) => {
 	return (
 		<li>
 			<h3>{item.brandName}</h3>
 			<p>{item.modelName}</p>
-			<p>${item.price}</p>
+			<p>N{formatToComma(item.price)}</p>
 		</li>
 	);
 };
 
-const Cart = ({ cartEssentials, addToCart }) => {
+export const Cart = ({ cartEssentials, addToCart }) => {
 	const [ open, setOpen ] = useState(false);
 
 	const { totalPrice, setTotalPrice, cartItems, setCartItems, calculateTotal, deliveryFee, setDeliveryFee } = cartEssentials
@@ -89,7 +89,7 @@ const Cart = ({ cartEssentials, addToCart }) => {
 			<div className={`cart_preview ${open ? 'active' : ''}`}>
 				<div className="cart_info">
 					<div className="total">
-						<h2>Total: ${totalPrice}</h2>
+						<h2>Total: N{formatToComma(totalPrice)}</h2>
 					</div>
 				</div>
 				<ul>{cartItems.map((item, i) => <CartItem key={i} item={item} />)}</ul>
@@ -98,7 +98,7 @@ const Cart = ({ cartEssentials, addToCart }) => {
 					<Button>Checkout</Button>
 				</Link>
 					<p>
-						Delivery Fee: $<span>{deliveryFee}</span>
+						Delivery Fee: N<span>{formatToComma(deliveryFee)}</span>
 					</p>
 					<Button onClick={resetCart} outlined>Reset Cart</Button>
 				</div>
@@ -111,14 +111,7 @@ const Cart = ({ cartEssentials, addToCart }) => {
 
 const Shopping = () => {
 	const [totalPrice, setTotalPrice] = useState(0)
-	const [cartItems, setCartItems] = useState([{
-		quantity: 1,
-		modelName: 'Powercourt 0520',
-		brandName: 'LaCoste',
-		price: 110,
-		modelNumber: 18149502,
-		shoeImage: 'https://www.thenextsole.com/storage/images/40SMA0079407.png'
-	}])
+	const [cartItems, setCartItems] = useState([])
 	const [deliveryFee, setDeliveryFee] = useState(3000)
 
 	// useEffect(() => {
@@ -136,7 +129,7 @@ const Shopping = () => {
 		deliveryFee, 
 		setDeliveryFee 
 	}
-	
+
 	const addToCart = (item) => {
 		const updatedCartItems = cartItems.concat(item)
 		setCartItems(updatedCartItems)

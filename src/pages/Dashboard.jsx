@@ -1,13 +1,51 @@
-import React from 'react'
-import { Page } from "../components/styledComponents";
+import React, { useState } from 'react'
+import { SubHeader, Page, JustifiedRow, Button } from "../components/styledComponents";
+
+const MerchNav = () => {
+
+  return (
+    <>
+      <JustifiedRow>
+        {/* <h2>Merchant Nav</h2> */}
+        <div>Create Store</div>
+        <div>Change Dispatcher</div>
+        <div>ICONS</div>
+        <div>SETTINGS</div>
+      </JustifiedRow>
+    </>
+  )
+}
+
+const ConsumerNav = () => {
+
+  return (
+    <>
+      <JustifiedRow>
+        {/* <h2>Consumer Nav</h2> */}
+        <div>IMAGE</div>
+        <div>ACTIONS</div>
+        <div>ICONS</div>
+        <div>SETTINGS</div>
+      </JustifiedRow>
+    </>
+  )
+}
+
 
 const Dashboard = () => {
+
+  const [isMerch, setIsMerch] = useState(true)
     
     return (
       <Page>
-        <h2>Dashboard page</h2>
+        <SubHeader>{ isMerch ? "MERCHANT" : "CONSUMER" } DASHBOARD</SubHeader>
         {/* show a different nav for merchants and another for customers  */}
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto nostrum itaque quidem, deserunt eum excepturi mollitia facere earum unde delectus exercitationem, suscipit quasi beatae minus! Eos, suscipit voluptate! Delectus labore ducimus similique, quo optio autem, reiciendis vero quaerat, ut aspernatur alias ab totam officia a nisi voluptatem deserunt qui ratione. Nisi quidem rem fugit et aspernatur dignissimos perspiciatis ullam ipsam tenetur dolore error, architecto exercitationem dolorem dolor eveniet, eius expedita blanditiis repellat delectus molestiae veniam. Autem quo dolorem in quibusdam, pariatur vero culpa quisquam distinctio veniam alias inventore consequatur aperiam dolore, dignissimos repellat rerum soluta tempora, corrupti voluptatibus. Delectus laudantium quae, cumque dolorem repudiandae doloribus, recusandae modi voluptate laboriosam ex, necessitatibus animi ea. Non aut rem eveniet accusantium quibusdam! Delectus ullam dignissimos atque nam, officia unde tenetur maiores consectetur quam. Impedit voluptatibus ullam, ipsa porro ipsam vel, amet totam magni earum suscipit provident! Illum aspernatur nostrum accusamus vero eum hic inventore eligendi sit dolor labore quidem neque iure eos vel dignissimos ipsam rem, iusto dolorum blanditiis fugit voluptas tempora! Voluptates fugit autem vel similique pariatur maiores et repudiandae in vitae totam voluptatum recusandae quibusdam asperiores voluptas neque laudantium, dolorum nihil aut deleniti, quaerat, perspiciatis corrupti sit molestiae. Cupiditate dolores repudiandae illo. Labore ut vitae accusantium ab eos delectus, excepturi dolores, repellendus ratione cum, reprehenderit assumenda. Animi suscipit laborum voluptatibus, repellat earum modi minima maxime dolorem neque, odio possimus cupiditate, mollitia ut natus dolorum explicabo cum. Molestiae hic quis aperiam. Sequi in ducimus ipsam, illo placeat aliquid hic vitae quia, odio ad quod voluptatem quaerat eaque tempora a quisquam blanditiis id sint quidem praesentium inventore debitis quibusdam sed facere. Sequi, sed. Veniam ab quod ipsa dolorem nesciunt dolore totam inventore illo ea odit excepturi praesentium, labore sint fugit eius reiciendis ex deserunt cumque quae, eligendi illum dolores tempore tenetur? Nemo esse labore eveniet illum impedit? Magni a nobis sed amet commodi. Tempora praesentium ea, eaque dolores pariatur earum iste quia iusto nesciunt rem dolor facilis inventore vel deserunt, atque animi quibusdam neque. Autem, dolorum. Ipsum debitis eaque quis magni maxime! Quis voluptatum ab, voluptatibus numquam odio quos minima placeat totam accusantium eos nostrum animi culpa mollitia voluptatem quae similique atque blanditiis aliquid. Cum explicabo accusantium optio deleniti, laborum quis cupiditate temporibus! Ad illum, deserunt impedit similique consequuntur maiores magni repellendus quisquam doloremque blanditiis? Error atque porro soluta maxime aperiam similique vel, eius ea hic, laboriosam explicabo molestias. Tempore veniam porro fugiat nam consequuntur voluptate eius esse, facere facilis, inventore ipsam libero deserunt. Maxime placeat saepe, culpa eligendi ut nostrum facere mollitia quas labore. Aspernatur vero, possimus laudantium exercitationem repellendus libero ea fugiat aut, necessitatibus aliquid in? Architecto vel, optio culpa amet inventore sed necessitatibus ipsa animi blanditiis tempore hic incidunt sequi, fuga nostrum, eligendi quidem dolor explicabo repudiandae autem id tempora. Quas quo quos ex? Voluptatum, deleniti. Corporis doloremque veniam quae dolore nam, officia voluptates exercitationem laudantium quisquam voluptatum enim velit earum praesentium, repellendus placeat, deleniti perferendis eaque? Consequuntur, facere delectus eius tenetur cumque voluptas saepe doloribus quia quod, quo aut.</p>
+        { isMerch ? <MerchNav /> : <ConsumerNav /> }
+
+        <div>
+          <Button onClick={() => setIsMerch(!isMerch)}>SWITCH</Button>
+        </div>
+        
       </Page>
   )
 }

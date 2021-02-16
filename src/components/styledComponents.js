@@ -7,7 +7,6 @@ c2 = "#686963"
 c3 = "#DB5461" // crimson
 c4 = "#F7F7F7"
 
-
 export const Page = styled.div`
   padding: 4em 1em 4em 2em;
   /* height: 100vh; */
@@ -111,7 +110,13 @@ export const StyledProductCard = styled.div`
 
 export const Title = styled.h1`
   font-size: 2.5em;
-  display: inline;
+  /* display: inline-block; */
+  font-weight: 100;
+  ${({ size }) => 
+    size && css `
+      font-size: ${size}em;
+    `
+  }
 `
 
 export const HeaderTitle = styled.h2`
@@ -124,11 +129,20 @@ export const SubHeader = styled.h4`
   font-size: 1.5em;
   color: ${c2};
   font-weight: 200;
-  display: inline;
+  /* display: inline; */
   ${({ center }) => 
     center && css `
       text-align: center;
     `}
+  ${({ textColor }) => 
+    textColor && css `
+      color: ${textColor};
+  `}
+  ${({ size }) => 
+    size && css `
+      font-size: ${size}em;
+    `
+  }
 `
 
 export const CrumbHeader = styled.a`
